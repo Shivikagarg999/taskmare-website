@@ -40,7 +40,7 @@ function PricingSection() {
 
   return (
     <section className="reveal bg-white py-20">
-      <div className="container-page grid overflow-hidden border hairline bg-white md:grid-cols-2">
+      <div className="container-page grid border hairline bg-white md:grid-cols-2">
         {plans.map((plan, index) => (
           <div key={plan.label} className={`relative p-8 md:p-10 ${index === 1 ? 'border-t hairline md:border-l md:border-t-0' : ''}`}>
             {index === 1 && (
@@ -76,7 +76,7 @@ function HomePage() {
       <section className="overflow-hidden">
         <div className="container-page grid min-h-[calc(100vh-72px)] items-center gap-16 py-20 lg:grid-cols-[1.04fr_0.96fr]">
           <div className="animate-in">
-            <h1 className="max-w-4xl text-6xl font-bold leading-[0.98] tracking-tight text-ink sm:text-7xl lg:text-8xl">
+            <h1 className="max-w-4xl text-5xl font-bold leading-[1] tracking-tight text-ink sm:text-6xl lg:text-7xl">
               You have the idea.
               <span className="block">We build the app.</span>
             </h1>
