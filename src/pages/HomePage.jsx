@@ -85,6 +85,31 @@ function HomePage() {
       </section>
 
       <section className="reveal section-space">
+        <div className="container-page grid items-center gap-14 lg:grid-cols-[0.9fr_1.1fr]">
+          <div className="overflow-hidden border hairline bg-white">
+            <img
+              src="/studio-collaboration.jpg"
+              alt="App development team discussing product work"
+              className="aspect-[4/3] w-full object-cover grayscale transition duration-500 hover:grayscale-0"
+            />
+          </div>
+          <div>
+            <p className="text-sm font-black uppercase tracking-[0.2em] text-brand">Launch support</p>
+            <h2 className="mt-4 max-w-xl text-5xl font-bold leading-tight tracking-tight text-ink">
+              Built for real stores, real users and real launches.
+            </h2>
+            <p className="mt-6 max-w-2xl text-lg leading-8 text-muted">
+              We help prepare app builds, store assets, listings and release support for Android and iOS products.
+            </p>
+            <div className="mt-8 flex flex-wrap items-center gap-3">
+              <img src="/app-store-badge.svg" alt="Download on the App Store" className="h-10 w-auto" />
+              <img src="/google-play-badge.svg" alt="Get it on Google Play" className="h-10 w-auto" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="reveal section-space">
         <div className="container-page grid gap-10 md:grid-cols-[0.65fr_1fr]">
           <h2 className="text-5xl font-bold tracking-tight text-ink">Process</h2>
           <div className="border-t hairline">

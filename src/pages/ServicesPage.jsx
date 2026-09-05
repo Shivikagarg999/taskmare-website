@@ -35,6 +35,10 @@ function ServicesPage() {
             <p className="text-lg leading-8 text-neutral-300">
               Built from scratch with clear milestones, store launch support, and post-launch support.
             </p>
+            <div className="mt-7 flex flex-wrap items-center gap-3">
+              <img src="/app-store-badge.svg" alt="Download on the App Store" className="h-10 w-auto" />
+              <img src="/google-play-badge.svg" alt="Get it on Google Play" className="h-10 w-auto" />
+            </div>
             <div className="mt-8 flex flex-wrap gap-x-7 gap-y-3 text-sm font-black">
               {['Built from scratch', 'Clear milestones', 'Store launch support', 'Post-launch support'].map((item) => (
                 <span key={item}>{item}</span>
