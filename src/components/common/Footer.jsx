@@ -3,7 +3,7 @@ import { navigation } from '../../data/home.js';
 
 function Footer() {
   return (
-    <footer className="bg-brand text-white">
+    <footer className="bg-[#8f0714] text-white">
       <div className="container-page grid gap-10 py-12 md:grid-cols-[1fr_auto]">
         <div>
           <p className="text-xl font-black">Taskmare Labs</p>

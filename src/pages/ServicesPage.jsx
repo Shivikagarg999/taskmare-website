@@ -29,8 +29,8 @@ function ServicesPage() {
       </section>
 
       <section className="reveal relative overflow-hidden bg-ink py-20 text-white">
-        <img src="/bg-img.png" alt="" className="absolute inset-0 h-full w-full object-cover opacity-16" />
-        <div className="absolute inset-0 bg-ink/82" />
+        <img src="/bg-img.png" alt="" className="absolute inset-0 h-full w-full object-cover opacity-[0.34]" />
+        <div className="absolute inset-0 bg-ink/70" />
         <div className="container-page relative grid gap-10 md:grid-cols-[0.9fr_1.1fr]">
           <h2 className="text-5xl font-bold tracking-tight">Not just development. Delivery.</h2>
           <div>

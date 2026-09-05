@@ -165,8 +165,8 @@ function HomePage() {
       </section>
 
       <section className="reveal relative overflow-hidden bg-ink py-24 text-white">
-        <img src="/bg-img.png" alt="" className="absolute inset-0 h-full w-full object-cover opacity-18" />
-        <div className="absolute inset-0 bg-ink/80" />
+        <img src="/bg-img.png" alt="" className="absolute inset-0 h-full w-full object-cover opacity-[0.34]" />
+        <div className="absolute inset-0 bg-ink/70" />
         <div className="container-page relative flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
           <div>
             <h2 className="text-5xl font-bold tracking-tight">Ready to build something?</h2>
