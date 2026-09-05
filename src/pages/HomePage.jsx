@@ -60,9 +60,9 @@ function HomePage() {
           </h2>
           <div className="mt-12 border-t hairline">
             {serviceHighlights.map((item) => (
-              <div key={item} className="grid gap-4 border-b hairline py-7 transition duration-300 hover:pl-2 md:grid-cols-[0.7fr_1fr]">
-                <h3 className="text-2xl font-black text-ink">{item}</h3>
-                <p className="max-w-2xl leading-7 text-muted">
+              <div key={item} className="group grid gap-4 border-b hairline px-4 py-7 transition duration-300 hover:bg-brand hover:pl-7 md:grid-cols-[0.7fr_1fr]">
+                <h3 className="text-2xl font-black text-ink transition duration-300 group-hover:text-white">{item}</h3>
+                <p className="max-w-2xl leading-7 text-muted transition duration-300 group-hover:text-red-50">
                   Strategy, product thinking, design, development and launch support handled with a clean studio process.
                 </p>
               </div>
@@ -89,9 +89,9 @@ function HomePage() {
           <h2 className="text-5xl font-bold tracking-tight text-ink">Process</h2>
           <div className="border-t hairline">
             {processItems.map((item, index) => (
-              <div key={item} className="grid grid-cols-[72px_1fr] border-b hairline py-7">
-                <span className="text-sm font-black text-brand">0{index + 1}</span>
-                <h3 className="text-3xl font-bold tracking-tight text-ink">{item}</h3>
+              <div key={item} className="group grid grid-cols-[72px_1fr] border-b hairline px-4 py-7 transition duration-300 hover:bg-brand hover:pl-7">
+                <span className="text-sm font-black text-brand transition duration-300 group-hover:text-white">0{index + 1}</span>
+                <h3 className="text-3xl font-bold tracking-tight text-ink transition duration-300 group-hover:text-white">{item}</h3>
               </div>
             ))}
           </div>

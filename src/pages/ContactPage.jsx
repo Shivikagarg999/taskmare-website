@@ -33,6 +33,12 @@ function ContactPage() {
                 +91 9760556855
               </a>
             </div>
+            <div className="grid gap-4 border-b hairline py-8 md:grid-cols-[180px_1fr]">
+              <p className="text-sm font-black uppercase tracking-[0.18em] text-brand">Address</p>
+              <p className="text-3xl font-bold tracking-tight text-ink">
+                Bijnor, Uttar Pradesh, India
+              </p>
+            </div>
             <a href="mailto:info@taskmare.online" className="btn-motion mt-8 inline-flex items-center gap-2 rounded-md bg-brand px-5 py-3 text-sm font-black text-white hover:bg-brand-dark">
               Start Your Project
               <ArrowRight size={18} />

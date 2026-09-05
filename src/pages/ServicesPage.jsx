@@ -16,12 +16,12 @@ function ServicesPage() {
 
         <div className="mt-16 border-t hairline">
           {services.map((service, index) => (
-            <article key={service.title} className="group grid gap-6 border-b hairline py-9 transition duration-300 hover:pl-3 md:grid-cols-[110px_0.8fr_1fr]">
-              <p className="text-sm font-black text-brand">0{index + 1}</p>
-              <h2 className="text-3xl font-bold tracking-tight text-ink">{service.title}</h2>
+            <article key={service.title} className="group grid gap-6 border-b hairline px-4 py-9 transition duration-300 hover:bg-brand hover:pl-7 md:grid-cols-[110px_0.8fr_1fr]">
+              <p className="text-sm font-black text-brand transition duration-300 group-hover:text-white">0{index + 1}</p>
+              <h2 className="text-3xl font-bold tracking-tight text-ink transition duration-300 group-hover:text-white">{service.title}</h2>
               <div className="flex items-start justify-between gap-6">
-                <p className="max-w-2xl text-lg leading-8 text-muted">{service.description}</p>
-                <ArrowRight className="mt-2 shrink-0 -translate-x-2 text-brand opacity-0 transition duration-300 group-hover:translate-x-0 group-hover:opacity-100" size={22} />
+                <p className="max-w-2xl text-lg leading-8 text-muted transition duration-300 group-hover:text-red-50">{service.description}</p>
+                <ArrowRight className="mt-2 shrink-0 -translate-x-2 text-brand opacity-0 transition duration-300 group-hover:translate-x-0 group-hover:text-white group-hover:opacity-100" size={22} />
               </div>
             </article>
           ))}

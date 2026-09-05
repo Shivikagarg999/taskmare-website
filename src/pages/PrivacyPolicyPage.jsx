@@ -11,7 +11,7 @@ const sections = [
   ['User Rights', 'You can request access, correction, or deletion of your personal information by contacting us.'],
   ["Children's Privacy", 'Our services are not directed to children, and we do not knowingly collect data from children.'],
   ['Policy Changes', 'We may update this policy from time to time. The latest version will be posted on this page.'],
-  ['Contact Information', 'For privacy questions, contact Taskmare Labs at info@taskmare.online.'],
+  ['Contact Information', 'For privacy questions, contact Taskmare Labs at info@taskmare.online. Address: Bijnor, Uttar Pradesh, India.'],
 ];
 
 function PrivacyPolicyPage() {

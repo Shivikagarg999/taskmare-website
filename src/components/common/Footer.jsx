@@ -10,6 +10,7 @@ function Footer() {
           <p className="mt-2 max-w-md text-sm leading-6 text-muted">
             Modern app, AI and software development for founders and growing teams.
           </p>
+          <p className="mt-3 text-sm font-semibold text-neutral-500">Bijnor, Uttar Pradesh, India</p>
           <p className="mt-6 text-sm font-semibold text-neutral-500">© 2026 Taskmare Labs. All rights reserved.</p>
         </div>
         <nav className="flex flex-wrap gap-5 text-sm font-bold text-neutral-600">
