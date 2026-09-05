@@ -1,11 +1,15 @@
+import { Menu, X } from 'lucide-react';
+import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { navigation } from '../../data/home.js';
 
 function Header() {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <header className="sticky top-0 z-30 border-b hairline bg-paper/90 backdrop-blur-xl">
       <div className="container-page flex h-18 items-center justify-between">
-        <NavLink to="/" className="flex items-center">
+        <NavLink to="/" className="flex items-center" onClick={() => setIsOpen(false)}>
           <img src="/logo-whiteBG.png" alt="Taskmare Labs" className="h-12 w-auto object-contain mix-blend-multiply" />
         </NavLink>
 
@@ -23,14 +27,41 @@ function Header() {
         >
           Start Your Project
         </NavLink>
+
+        <button
+          type="button"
+          className="grid size-10 place-items-center rounded-md border hairline bg-white text-ink md:hidden"
+          aria-label={isOpen ? 'Close menu' : 'Open menu'}
+          aria-expanded={isOpen}
+          onClick={() => setIsOpen((value) => !value)}
+        >
+          {isOpen ? <X size={20} /> : <Menu size={20} />}
+        </button>
       </div>
-      <nav className="container-page flex gap-4 overflow-x-auto pb-3 text-sm font-bold text-neutral-600 md:hidden">
-        {navigation.map((item) => (
-          <NavLink key={item.href} to={item.href} className={({ isActive }) => `shrink-0 transition hover:text-ink ${isActive ? 'text-ink' : ''}`}>
-            {item.label}
-          </NavLink>
-        ))}
-      </nav>
+
+      {isOpen && (
+        <div className="border-t hairline bg-paper md:hidden">
+          <nav className="container-page grid gap-1 py-4 text-sm font-bold text-neutral-700">
+            {navigation.map((item) => (
+              <NavLink
+                key={item.href}
+                to={item.href}
+                onClick={() => setIsOpen(false)}
+                className={({ isActive }) => `rounded-md px-3 py-3 transition hover:bg-white hover:text-ink ${isActive ? 'bg-white text-ink' : ''}`}
+              >
+                {item.label}
+              </NavLink>
+            ))}
+            <NavLink
+              to="/contact"
+              onClick={() => setIsOpen(false)}
+              className="mt-2 rounded-md bg-brand px-3 py-3 text-center font-black text-white"
+            >
+              Start Your Project
+            </NavLink>
+          </nav>
+        </div>
+      )}
     </header>
   );
 }
