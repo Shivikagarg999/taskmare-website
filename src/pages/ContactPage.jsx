@@ -1,4 +1,4 @@
-import { ArrowRight, CreditCard, Facebook, Instagram, Mail, MapPin, MessageCircle, Phone, ShieldCheck, Target, WalletCards } from 'lucide-react';
+import { ArrowRight, AtSign, CreditCard, ExternalLink, Mail, MapPin, MessageCircle, Phone, ShieldCheck, Target, WalletCards } from 'lucide-react';
 import MarketingLayout from '../layouts/MarketingLayout.jsx';
 
 const trustItems = [
@@ -113,16 +113,16 @@ function ContactPage() {
 
               <div className="grid gap-5 border-t hairline py-7 sm:grid-cols-[52px_1fr]">
                 <span className="grid size-11 place-items-center rounded-md bg-neutral-50 text-brand">
-                  <Instagram size={20} />
+                  <AtSign size={20} />
                 </span>
                 <div>
                   <p className="text-xs font-black uppercase tracking-[0.18em] text-brand">Social</p>
                   <div className="mt-3 flex flex-wrap gap-4 text-sm font-black text-ink">
                     <a href="https://www.facebook.com/taksmare/" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 hover:text-brand">
-                      <Facebook size={16} /> Facebook
+                      <ExternalLink size={16} /> Facebook
                     </a>
                     <a href="https://www.instagram.com/taskmare_labs" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 hover:text-brand">
-                      <Instagram size={16} /> Instagram
+                      <AtSign size={16} /> Instagram
                     </a>
                   </div>
                 </div>
