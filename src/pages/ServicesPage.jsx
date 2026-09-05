@@ -14,14 +14,14 @@ function ServicesPage() {
           From early product thinking to production release, Taskmare Labs builds custom digital products with clarity and craft.
         </p>
 
-        <div className="mt-16 border-t hairline">
+        <div className="interactive-list mt-16 border-t hairline">
           {services.map((service, index) => (
-            <article key={service.title} className="group grid gap-6 border-b hairline px-4 py-9 transition duration-300 hover:bg-brand hover:pl-7 md:grid-cols-[110px_0.8fr_1fr]">
-              <p className="text-sm font-black text-brand transition duration-300 group-hover:text-white">0{index + 1}</p>
-              <h2 className="text-3xl font-bold tracking-tight text-ink transition duration-300 group-hover:text-white">{service.title}</h2>
+            <article key={service.title} className={`interactive-row group grid gap-6 border-b hairline px-4 py-9 transition duration-300 hover:pl-7 md:grid-cols-[110px_0.8fr_1fr] ${index === 0 ? 'default-active-row' : ''}`}>
+              <p className="active-white text-sm font-black text-brand transition duration-300">0{index + 1}</p>
+              <h2 className="active-white text-3xl font-bold tracking-tight text-ink transition duration-300">{service.title}</h2>
               <div className="flex items-start justify-between gap-6">
-                <p className="max-w-2xl text-lg leading-8 text-muted transition duration-300 group-hover:text-red-50">{service.description}</p>
-                <ArrowRight className="mt-2 shrink-0 -translate-x-2 text-brand opacity-0 transition duration-300 group-hover:translate-x-0 group-hover:text-white group-hover:opacity-100" size={22} />
+                <p className="active-muted max-w-2xl text-lg leading-8 text-muted transition duration-300">{service.description}</p>
+                <ArrowRight className="active-arrow mt-2 shrink-0 -translate-x-2 text-brand opacity-0 transition duration-300" size={22} />
               </div>
             </article>
           ))}

@@ -103,6 +103,28 @@
   .nav-link-active::after {
     transform: scaleX(1);
   }
+
+  .interactive-list:not(:hover) .default-active-row,
+  .interactive-list .interactive-row:hover {
+    background: var(--color-brand);
+  }
+
+  .interactive-list:not(:hover) .default-active-row .active-white,
+  .interactive-list .interactive-row:hover .active-white {
+    color: #fff;
+  }
+
+  .interactive-list:not(:hover) .default-active-row .active-muted,
+  .interactive-list .interactive-row:hover .active-muted {
+    color: #fff1f2;
+  }
+
+  .interactive-list:not(:hover) .default-active-row .active-arrow,
+  .interactive-list .interactive-row:hover .active-arrow {
+    opacity: 1;
+    transform: translateX(0);
+    color: #fff;
+  }
 }
 
 @keyframes fade-up {
