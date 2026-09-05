@@ -1,4 +1,4 @@
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Check } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { serviceHighlights } from '../data/home.js';
 import MarketingLayout from '../layouts/MarketingLayout.jsx';
@@ -15,6 +15,58 @@ function AbstractVisual() {
         className="w-full object-contain"
       />
     </div>
+  );
+}
+
+function PricingSection() {
+  const plans = [
+    {
+      label: 'Basic',
+      title: 'Apps starting from',
+      price: '₹14,999',
+      text: 'Perfect for startups and MVPs. Custom apps built for a single platform.',
+      accent: 'brand',
+      items: ['Custom App Development', 'Clean & Modern UI', 'Quality Assurance', 'Post-Launch Support'],
+    },
+    {
+      label: 'Bundle',
+      title: 'Android + iOS starting from',
+      price: '₹49,999',
+      text: 'One product, two platforms. Reach more users, grow faster.',
+      accent: 'ink',
+      items: ['Android + iOS Apps', 'Shared Codebase', 'App Store Submission', 'Post-Launch Support'],
+    },
+  ];
+
+  return (
+    <section className="reveal bg-white py-20">
+      <div className="container-page grid overflow-hidden border hairline bg-white md:grid-cols-2">
+        {plans.map((plan, index) => (
+          <div key={plan.label} className={`relative p-8 md:p-10 ${index === 1 ? 'border-t hairline md:border-l md:border-t-0' : ''}`}>
+            {index === 1 && (
+              <div className="absolute left-1/2 top-0 hidden size-11 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full border hairline bg-white md:grid">
+                <img src="/favicon.png" alt="" className="size-6 object-contain" />
+              </div>
+            )}
+            <div className={`absolute right-8 top-0 h-px w-32 ${plan.accent === 'brand' ? 'bg-brand' : 'bg-ink'}`} />
+            <p className={`text-xs font-black uppercase tracking-[0.2em] ${plan.accent === 'brand' ? 'text-brand' : 'text-ink'}`}>
+              {plan.label}
+            </p>
+            <h2 className="mt-3 text-2xl font-bold tracking-tight text-ink">{plan.title}</h2>
+            <p className="mt-2 font-display text-5xl font-bold tracking-tight text-ink">{plan.price}</p>
+            <p className="mt-3 max-w-sm text-sm leading-6 text-muted">{plan.text}</p>
+            <div className="mt-8 grid gap-3 border-t hairline pt-6 text-sm font-semibold text-ink">
+              {plan.items.map((item) => (
+                <p key={item} className="flex items-center gap-3">
+                  <Check size={14} className={plan.accent === 'brand' ? 'text-brand' : 'text-ink'} />
+                  {item}
+                </p>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
   );
 }
 
@@ -71,18 +123,7 @@ function HomePage() {
         </div>
       </section>
 
-      <section className="reveal bg-white py-20">
-        <div className="container-page grid gap-8 md:grid-cols-2">
-          <div className="border-t-2 border-brand pt-6">
-            <p className="text-sm font-black uppercase tracking-[0.2em] text-brand">Pricing</p>
-            <h2 className="mt-4 text-4xl font-bold tracking-tight text-ink">Apps starting from ₹15,000</h2>
-          </div>
-          <div className="border-t-2 border-ink pt-6">
-            <p className="text-sm font-black uppercase tracking-[0.2em] text-ink">Bundle</p>
-            <h2 className="mt-4 text-4xl font-bold tracking-tight text-ink">Android + iOS starting from ₹50,000</h2>
-          </div>
-        </div>
-      </section>
+      <PricingSection />
 
       <section className="reveal section-space">
         <div className="container-page grid items-center gap-14 lg:grid-cols-[0.9fr_1.1fr]">
@@ -123,8 +164,10 @@ function HomePage() {
         </div>
       </section>
 
-      <section className="reveal bg-ink py-24 text-white">
-        <div className="container-page flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
+      <section className="reveal relative overflow-hidden bg-ink py-24 text-white">
+        <img src="/bg-img.png" alt="" className="absolute inset-0 h-full w-full object-cover opacity-18" />
+        <div className="absolute inset-0 bg-ink/80" />
+        <div className="container-page relative flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
           <div>
             <h2 className="text-5xl font-bold tracking-tight">Ready to build something?</h2>
             <p className="mt-4 text-lg text-neutral-300">Tell us what you have in mind.</p>

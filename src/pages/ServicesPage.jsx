@@ -1,6 +1,6 @@
 import { services } from '../data/home.js';
 import MarketingLayout from '../layouts/MarketingLayout.jsx';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, BadgeCheck, Boxes, Headphones, Milestone } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 function ServicesPage() {
@@ -28,8 +28,10 @@ function ServicesPage() {
         </div>
       </section>
 
-      <section className="reveal bg-ink py-20 text-white">
-        <div className="container-page grid gap-10 md:grid-cols-[0.9fr_1.1fr]">
+      <section className="reveal relative overflow-hidden bg-ink py-20 text-white">
+        <img src="/bg-img.png" alt="" className="absolute inset-0 h-full w-full object-cover opacity-16" />
+        <div className="absolute inset-0 bg-ink/82" />
+        <div className="container-page relative grid gap-10 md:grid-cols-[0.9fr_1.1fr]">
           <h2 className="text-5xl font-bold tracking-tight">Not just development. Delivery.</h2>
           <div>
             <p className="text-lg leading-8 text-neutral-300">
@@ -39,9 +41,17 @@ function ServicesPage() {
               <img src="/app-store-badge.svg" alt="Download on the App Store" className="h-10 w-auto" />
               <img src="/google-play-badge.svg" alt="Get it on Google Play" className="h-10 w-auto" />
             </div>
-            <div className="mt-8 flex flex-wrap gap-x-7 gap-y-3 text-sm font-black">
-              {['Built from scratch', 'Clear milestones', 'Store launch support', 'Post-launch support'].map((item) => (
-                <span key={item}>{item}</span>
+            <div className="mt-9 grid gap-5 sm:grid-cols-2">
+              {[
+                ['Built from scratch', Boxes],
+                ['Clear milestones', Milestone],
+                ['Store launch support', BadgeCheck],
+                ['Post-launch support', Headphones],
+              ].map(([item, Icon]) => (
+                <div key={item} className="flex items-center gap-3 border-t border-white/20 pt-4">
+                  <Icon size={20} className="text-brand" />
+                  <span className="text-sm font-black">{item}</span>
+                </div>
               ))}
             </div>
           </div>

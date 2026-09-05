@@ -18,7 +18,7 @@ function PrivacyPolicyPage() {
   return (
     <MarketingLayout>
       <section className="mx-auto max-w-3xl px-5 py-20 sm:px-8 animate-in">
-        <p className="text-sm font-black uppercase tracking-[0.18em] text-brand">Privacy Policy</p>
+        <p className="text-sm font-black uppercase tracking-[0.18em] text-brand">Privacy</p>
         <h1 className="mt-4 text-6xl font-bold tracking-tight text-ink">Privacy Policy</h1>
         <div className="mt-14 border-t hairline">
           {sections.map(([title, body]) => (
