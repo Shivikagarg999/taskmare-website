@@ -1,4 +1,5 @@
 import { services } from '../data/home.js';
+import Seo from '../components/common/Seo.jsx';
 import MarketingLayout from '../layouts/MarketingLayout.jsx';
 import { ArrowRight, BadgeCheck, Boxes, Headphones, Milestone } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -6,6 +7,11 @@ import { Link } from 'react-router-dom';
 function ServicesPage() {
   return (
     <MarketingLayout>
+      <Seo
+        title="App, AI & Software Development Services | Taskmare Labs"
+        description="Android and iOS apps, AI app development, custom software, backend and APIs, plus Play Store and App Store launch support from Taskmare Labs."
+        path="/services"
+      />
       <section className="container-page section-space animate-in">
         <h1 className="max-w-4xl text-6xl font-bold leading-none tracking-tight text-ink md:text-7xl">
           Apps. AI. Software. Built right.
@@ -16,8 +22,9 @@ function ServicesPage() {
 
         <div className="interactive-list mt-16 border-t hairline">
           {services.map((service, index) => (
-            <article key={service.title} className={`interactive-row group grid gap-6 border-b hairline px-4 py-9 transition duration-300 hover:pl-7 md:grid-cols-[110px_0.8fr_1fr] ${index === 0 ? 'default-active-row' : ''}`}>
+            <article key={service.title} className={`interactive-row group grid gap-6 border-b hairline px-4 py-9 transition duration-300 hover:pl-7 md:grid-cols-[110px_64px_0.8fr_1fr] md:items-center ${index === 0 ? 'default-active-row' : ''}`}>
               <p className="active-white text-sm font-black text-brand transition duration-300">0{index + 1}</p>
+              {service.image ? <img src={service.image} alt="" className="size-16 rounded-lg object-cover" /> : <span className="hidden md:block" />}
               <h2 className="active-white text-3xl font-bold tracking-tight text-ink transition duration-300">{service.title}</h2>
               <div className="flex items-start justify-between gap-6">
                 <p className="active-muted max-w-2xl text-lg leading-8 text-muted transition duration-300">{service.description}</p>
@@ -61,7 +68,7 @@ function ServicesPage() {
       <section className="container-page reveal py-20">
         <div className="flex flex-col gap-6 border-t-2 border-brand pt-8 md:flex-row md:items-end md:justify-between">
           <h2 className="max-w-2xl text-5xl font-bold tracking-tight text-ink">Have something specific in mind?</h2>
-          <Link to="/contact" className="btn-motion inline-flex w-fit items-center gap-2 text-sm font-black text-brand">
+          <Link to="/start-project" className="btn-motion inline-flex w-fit items-center gap-2 text-sm font-black text-brand">
             Start Your Project <ArrowRight size={18} />
           </Link>
         </div>

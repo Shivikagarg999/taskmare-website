@@ -22,7 +22,7 @@ function Header() {
         </nav>
 
         <NavLink
-          to="/contact"
+          to="/start-project"
           className="btn-motion hidden rounded-md bg-brand px-4 py-2 text-[13px] font-black text-white hover:bg-brand-dark sm:inline-flex"
         >
           Start Your Project
@@ -53,7 +53,7 @@ function Header() {
               </NavLink>
             ))}
             <NavLink
-              to="/contact"
+              to="/start-project"
               onClick={() => setIsOpen(false)}
               className="mt-2 rounded-md bg-brand px-3 py-3 text-center font-black text-white"
             >

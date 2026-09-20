@@ -1,4 +1,7 @@
-import { ArrowRight, AtSign, CreditCard, ExternalLink, Mail, MapPin, MessageCircle, Phone, ShieldCheck, Target, WalletCards } from 'lucide-react';
+import { ArrowRight, AtSign, CreditCard, Mail, MapPin, MessageCircle, Phone, ShieldCheck, Target, WalletCards } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import SocialLinks from '../components/common/SocialLinks.jsx';
+import Seo from '../components/common/Seo.jsx';
 import MarketingLayout from '../layouts/MarketingLayout.jsx';
 
 const trustItems = [
@@ -37,6 +40,11 @@ function PixelPattern({ className = '' }) {
 function ContactPage() {
   return (
     <MarketingLayout>
+      <Seo
+        title="Contact Taskmare Labs | Bijnor, Uttar Pradesh"
+        description="Get in touch with Taskmare Labs by email, phone or WhatsApp to talk about your app, AI or software project."
+        path="/contact"
+      />
       <section className="relative overflow-hidden py-20 sm:py-24">
         <PixelPattern className="absolute bottom-12 left-6 opacity-80" />
         <PixelPattern className="absolute bottom-14 right-10 opacity-60" />
@@ -83,8 +91,8 @@ function ContactPage() {
                 </span>
                 <div>
                   <p className="text-xs font-black uppercase tracking-[0.18em] text-brand">Email</p>
-                  <a href="mailto:info@taskmare.online" className="mt-2 block text-xl font-black text-ink hover:text-brand">
-                    info@taskmare.online
+                  <a href="mailto:taskmarelabs@gmail.com" className="mt-2 block text-xl font-black text-ink hover:text-brand">
+                    taskmarelabs@gmail.com
                   </a>
                 </div>
               </div>
@@ -107,7 +115,7 @@ function ContactPage() {
                 </span>
                 <div>
                   <p className="text-xs font-black uppercase tracking-[0.18em] text-brand">Address</p>
-                  <p className="mt-2 text-xl font-black text-ink">Bijnor, Uttar Pradesh, India</p>
+                  <p className="mt-2 text-xl font-black text-ink">Gokul Nagar, Chandpur, Bijnor, Uttar Pradesh, India</p>
                 </div>
               </div>
 
@@ -117,22 +125,17 @@ function ContactPage() {
                 </span>
                 <div>
                   <p className="text-xs font-black uppercase tracking-[0.18em] text-brand">Social</p>
-                  <div className="mt-3 flex flex-wrap gap-4 text-sm font-black text-ink">
-                    <a href="https://www.facebook.com/taksmare/" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 hover:text-brand">
-                      <ExternalLink size={16} /> Facebook
-                    </a>
-                    <a href="https://www.instagram.com/taskmare_labs" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 hover:text-brand">
-                      <AtSign size={16} /> Instagram
-                    </a>
+                  <div className="mt-3">
+                    <SocialLinks />
                   </div>
                 </div>
               </div>
             </div>
 
-            <a href="mailto:info@taskmare.online" className="btn-motion mt-4 flex items-center justify-center gap-2 rounded-md bg-brand px-5 py-4 text-sm font-black text-white hover:bg-brand-dark">
+            <Link to="/start-project" className="btn-motion mt-4 flex items-center justify-center gap-2 rounded-md bg-brand px-5 py-4 text-sm font-black text-white hover:bg-brand-dark">
               <ArrowRight size={18} />
               Start Your Project
-            </a>
+            </Link>
           </aside>
         </div>
 

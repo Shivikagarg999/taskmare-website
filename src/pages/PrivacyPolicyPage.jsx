@@ -1,3 +1,4 @@
+import Seo from '../components/common/Seo.jsx';
 import MarketingLayout from '../layouts/MarketingLayout.jsx';
 
 const sections = [
@@ -11,12 +12,17 @@ const sections = [
   ['User Rights', 'You can request access, correction, or deletion of your personal information by contacting us.'],
   ["Children's Privacy", 'Our services are not directed to children, and we do not knowingly collect data from children.'],
   ['Policy Changes', 'We may update this policy from time to time. The latest version will be posted on this page.'],
-  ['Contact Information', 'For privacy questions, contact Taskmare Labs at info@taskmare.online. Address: Bijnor, Uttar Pradesh, India.'],
+  ['Contact Information', 'For privacy questions, contact Taskmare Labs at taskmarelabs@gmail.com. Address: Gokul Nagar, Chandpur, Bijnor, Uttar Pradesh, India.'],
 ];
 
 function PrivacyPolicyPage() {
   return (
     <MarketingLayout>
+      <Seo
+        title="Privacy Policy | Taskmare Labs"
+        description="How Taskmare Labs collects, uses and protects the information you share with us."
+        path="/privacy-policy"
+      />
       <section className="mx-auto max-w-3xl px-5 py-20 sm:px-8 animate-in">
         <p className="text-sm font-black uppercase tracking-[0.18em] text-brand">Privacy</p>
         <h1 className="mt-4 text-6xl font-bold tracking-tight text-ink">Privacy Policy</h1>
