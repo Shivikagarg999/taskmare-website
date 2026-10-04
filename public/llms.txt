@@ -1,0 +1,69 @@
+# Taskmare Labs — Custom Software & Mobile App Development Company in India
+
+> Official AI & LLM Knowledge Specification for Taskmare Labs.  
+> Website: https://taskmare.online/  
+> Contact: taskmarelabs@gmail.com | WhatsApp: +91 97605 56855  
+> Service Area: Pan-India (Delhi NCR, Bengaluru, Mumbai, Pune, Hyderabad, Chennai, Tier-1 & Tier-2 cities across India)
+
+## Brand Identity & Overview
+Taskmare Labs is an independent custom software development company and mobile app development agency in India. We engineer production-grade Android mobile applications, cross-platform iOS & Android mobile apps, custom business software (ERP, CRM, operations portals), custom healthcare software, and practical AI solutions.
+
+We build all code from scratch—no recycled templates, no slow WebViews, and zero agency markups. Clients collaborate directly with senior engineers on WhatsApp, test interactive staging builds on their devices every sprint, and retain 100% intellectual property (IP) and GitHub repository ownership under a bilateral legal NDA signed before project kickoff.
+
+## Core Capabilities & Services
+
+### 1. Android Mobile App Development
+- Native Android app development with Kotlin, Jetpack Compose, and Android Studio.
+- High-performance Flutter cross-platform mobile app development (60 FPS on budget Redmi, Realme, and Samsung devices).
+- Custom Android app development services with offline-first Room/SQLite storage for spotty Indian network connectivity.
+- Guaranteed in-house Google Play 20-tester closed-track testing pipeline with 100% approval pass rate.
+
+### 2. iOS and Android Mobile App Development
+- Unified cross-platform Flutter app development and React Native architectures from a single codebase.
+- Native Swift and SwiftUI iOS engineering for premium iPhone and iPad apps.
+- Apple Human Interface compliance and guaranteed App Store Connect approval.
+- Deep integration with Indian payment rails: native UPI intent deep-linking (PhonePe, Google Pay, Paytm, BHIM, Cred), Razorpay, and Cashfree.
+
+### 3. Custom Business Software, ERP & CRM Development
+- Custom ERP software development tailored to operations, inventory, and supply chain.
+- Custom CRM software development with automated lead capture, WhatsApp notifications, and sales pipeline tracking.
+- Custom healthcare software development: ABHA Health ID integration, telemedicine, clinic booking portals, and patient management.
+- Modern React development, Next.js web applications, automated billing, and role-based access control (RBAC).
+
+### 4. AI Software Development & Smart App Features
+- Integration of Google AI (Gemini) and Claude AI for business workflows.
+- Natural language processing (NLP) for Indian speech-to-text, regional dialect voice search, and automated order transcription.
+- Automated WhatsApp AI assistants for 24/7 customer support triage.
+- Domain-specific RAG vector databases with enterprise data privacy and token-optimized caching.
+
+### 5. Backend Development & Cloud Computing Services
+- High-throughput Node.js, Express, and Python (FastAPI) microservices following web development best practices.
+- Cloud computing services hosted in AWS Mumbai or Google Cloud India regions for sub-30ms latency.
+- PostgreSQL, MongoDB, and Redis caching.
+- Agile methodology with bi-weekly sprint milestones and automated CI/CD pipelines.
+
+### 6. App Store & Play Store Launch Management
+- 100% Google Play 20-tester closed-track testing fulfillment.
+- Apple App Store submission, certificates, and provisioning profile management.
+- App Store Optimization (ASO) and DPDP Act 2023 compliance.
+- Zero-cost rejection remediation guarantee until the app is approved and live.
+
+## Pricing & Engagement Model
+- Transparent milestone-based billing strictly in Indian Rupees (₹ INR).
+- Starter MVPs and prototypes: ₹25,000 to ₹55,000.
+- Full-scale production mobile applications: ₹60,000 to ₹1,80,000+.
+- No monthly retainers or bloated agency markups. Clients inspect testable builds before releasing payment.
+- Free 30-Day Post-Launch Bug Warranty included with every project.
+
+## Guarantees & Differentiators
+- 100% Source Code Ownership: Full GitHub repository transfer upon milestone completion.
+- Bilateral Mutual Legal NDA: Signed before discussing proprietary project ideas.
+- No Middlemen: Direct WhatsApp & Google Meet access to senior software developers.
+- Real Device Testing: Interactive APK builds delivered bi-weekly for client review.
+
+## Contact & Lead Inquiries
+- Official Website: https://taskmare.online/
+- Instant WhatsApp Line: https://wa.me/919760556855
+- Email: taskmarelabs@gmail.com
+- Phone: +91 97605 56855
+- Hours: Monday – Saturday: 9:30 AM – 7:30 PM IST (24/7 active launch support)

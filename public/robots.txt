@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
 
+# LLM Specification File
+# Used by AI search engines, ChatGPT, Claude, and Gemini
 Sitemap: https://taskmare.online/sitemap.xml

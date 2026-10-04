@@ -1,0 +1,344 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    --color-brand: #E11D48;
+    --color-brand-hover: #BE123C;
+    --color-brand-soft: #FFF1F2;
+    --color-ink: #101827;
+    --color-paper: #FBFAF8;
+  }
+
+  html, body {
+    scroll-behavior: smooth;
+    font-family: 'Urbanist', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6, .font-heading {
+    font-family: 'Urbanist', system-ui, -apple-system, sans-serif;
+    letter-spacing: -0.025em;
+  }
+
+  /* Accessibility: Focus Visible styles complying with WCAG AA */
+  *:focus-visible {
+    outline: 2px solid #E11D48;
+    outline-offset: 2px;
+  }
+
+  /* Skip link for accessibility */
+  .skip-link {
+    position: absolute;
+    top: -40px;
+    left: 10px;
+    background: #E11D48;
+    color: white;
+    padding: 8px 16px;
+    z-index: 100;
+    transition: top 0.2s ease;
+    font-weight: 600;
+    border-radius: 4px;
+  }
+  .skip-link:focus {
+    top: 10px;
+  }
+}
+
+/* Enforce Urbanist across all components & headings */
+html, body, html[data-font="urbanist"], body[data-font="urbanist"] {
+  font-family: 'Urbanist', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+}
+
+h1, h2, h3, h4, h5, h6, .font-heading {
+  font-family: 'Urbanist', system-ui, -apple-system, sans-serif !important;
+  letter-spacing: -0.03em !important;
+  text-wrap: balance;
+}
+
+/* Tactile button physics & micro-interactions */
+.btn-tactile-primary {
+  position: relative;
+  background-color: #E11D48;
+  color: #FFFFFF;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25), 0 2px 6px -1px rgba(225, 29, 72, 0.35);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.btn-tactile-primary:hover {
+  background-color: #BE123C;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35), 0 4px 14px -2px rgba(225, 29, 72, 0.45);
+  transform: translateY(-1px);
+}
+.btn-tactile-primary:active {
+  transform: scale(0.98);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.25);
+}
+
+.btn-tactile-whatsapp {
+  position: relative;
+  background-color: #25D366;
+  color: #FFFFFF;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.28), 0 2px 6px -1px rgba(37, 211, 102, 0.35);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.btn-tactile-whatsapp:hover {
+  background-color: #20ba5a;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35), 0 4px 14px -2px rgba(37, 211, 102, 0.45);
+  transform: translateY(-1px);
+}
+.btn-tactile-whatsapp:active {
+  transform: scale(0.98);
+}
+
+/* Custom form input focus rings */
+.input-tactile {
+  transition: border-color 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s ease;
+}
+.input-tactile:focus {
+  border-color: #E11D48 !important;
+  box-shadow: 0 0 0 3px rgba(225, 29, 72, 0.16) !important;
+  outline: none !important;
+}
+
+/* Refined Obsidian & Chalk card hover physics */
+.card-elevated {
+  position: relative;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease, border-color 0.25s ease;
+}
+.card-elevated:hover {
+  transform: translateY(-2px);
+}
+.dark .card-elevated:hover {
+  border-color: rgba(225, 29, 72, 0.35);
+  box-shadow: 0 16px 36px -12px rgba(0, 0, 0, 0.65), 0 0 18px -4px rgba(225, 29, 72, 0.15);
+}
+.card-elevated:hover {
+  border-color: rgba(225, 29, 72, 0.25);
+  box-shadow: 0 14px 30px -10px rgba(0, 0, 0, 0.08), 0 0 12px -2px rgba(225, 29, 72, 0.1);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+.dark ::-webkit-scrollbar-thumb {
+  background: #334155;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Premium subtle dot grid backdrop */
+.grid-bg-light {
+  background-size: 36px 36px;
+  background-image: 
+    radial-gradient(circle, rgba(16, 24, 39, 0.06) 1.2px, transparent 1.2px);
+}
+.dark .grid-bg-light {
+  background-image: 
+    radial-gradient(circle, rgba(255, 255, 255, 0.08) 1.2px, transparent 1.2px);
+}
+
+/* Subtle linear grid pattern */
+.linear-grid-bg {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(16, 24, 39, 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(16, 24, 39, 0.035) 1px, transparent 1px);
+}
+.dark .linear-grid-bg {
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+}
+
+/* Premium ambient gradient text shimmer */
+@keyframes text-shimmer {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.text-gradient-shimmer {
+  background: linear-gradient(90deg, #E11D48 0%, #FF6B6B 30%, #E11D48 60%, #B91C1C 100%);
+  background-size: 200% auto;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: text-shimmer 4s ease infinite;
+}
+
+/* Subtle float animation for ambient lighting */
+@keyframes ambient-drift {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(15px, -15px) scale(1.05);
+  }
+}
+
+.animate-ambient-drift {
+  animation: ambient-drift 14s ease-in-out infinite;
+}
+
+/* Glassmorphism card utility */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(229, 231, 235, 0.8);
+}
+.dark .glass-panel {
+  background: rgba(17, 24, 39, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Interactive card sheen on hover */
+.card-sheen {
+  position: relative;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease, border-color 0.25s ease;
+}
+.card-sheen:hover {
+  transform: translateY(-2px);
+}
+.dark .card-sheen:hover {
+  border-color: rgba(225, 29, 72, 0.35);
+  box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.5), 0 0 15px -3px rgba(225, 29, 72, 0.15);
+}
+
+/* Sleek scrollbar utility for simulator screens */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 9999px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Hero Image Custom Animations */
+@keyframes hero-float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(0.6deg);
+  }
+}
+
+@keyframes hero-pulse-glow {
+  0%, 100% {
+    opacity: 0.35;
+    transform: scale(0.96);
+  }
+  50% {
+    opacity: 0.65;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes hero-sheen-sweep {
+  0% {
+    transform: translateX(-160%) skewX(-20deg);
+  }
+  20%, 100% {
+    transform: translateX(260%) skewX(-20deg);
+  }
+}
+
+@keyframes hero-chip-float-1 {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-7px);
+  }
+}
+
+@keyframes hero-chip-float-2 {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(7px);
+  }
+}
+
+.animate-hero-float {
+  animation: hero-float 7s ease-in-out infinite;
+}
+
+.animate-hero-pulse-glow {
+  animation: hero-pulse-glow 5s ease-in-out infinite;
+}
+
+.animate-hero-sheen {
+  animation: hero-sheen-sweep 8s ease-in-out infinite;
+}
+
+.animate-hero-chip-1 {
+  animation: hero-chip-float-1 5s ease-in-out infinite;
+}
+
+.animate-hero-chip-2 {
+  animation: hero-chip-float-2 6s ease-in-out infinite;
+}
+
+/* Infinite Marquee Scroll Animations */
+@keyframes marquee-scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes marquee-scroll-right {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.animate-marquee-left {
+  display: flex;
+  width: max-content;
+  animation: marquee-scroll-left 32s linear infinite;
+}
+
+.animate-marquee-right {
+  display: flex;
+  width: max-content;
+  animation: marquee-scroll-right 36s linear infinite;
+}
+
+.animate-marquee-left:hover,
+.animate-marquee-right:hover {
+  animation-play-state: paused;
+}
+

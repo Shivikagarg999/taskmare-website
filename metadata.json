@@ -1,0 +1,6 @@
+{
+  "name": "Taskmare Labs | App, AI & Software Development",
+  "description": "Custom Android, iOS, AI and software development from scratch by Taskmare Labs. Conversion-focused, responsive design with project inquiry portal.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
