@@ -17,6 +17,8 @@ import {
   ExternalLink,
 } from 'lucide-react';
 
+const ENQUIRY_URL = `${(import.meta.env.VITE_API_URL || 'https://api.gmkart.com').replace(/\/$/, '')}/api/taskmare/enquiry`;
+
 interface EnquiryFormProps {
   initialPlatform?: PlatformChoice;
   initialBudget?: string;
@@ -133,7 +135,7 @@ export const EnquiryForm: React.FC<EnquiryFormProps> = ({
     };
 
     try {
-      const response = await fetch('/api/enquiry', {
+      const response = await fetch(ENQUIRY_URL, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
