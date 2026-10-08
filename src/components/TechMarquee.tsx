@@ -77,9 +77,6 @@ export const TechMarquee: React.FC<TechMarqueeProps> = ({ onSelectItem }) => {
           </span>
           <span>Core Technology Stack &amp; Studio Standards</span>
         </div>
-        <div className="hidden sm:block text-[10px] text-neutral-400 dark:text-neutral-500 uppercase tracking-widest">
-          Hover to Pause · Direct Engineer Build
-        </div>
       </div>
 
       {/* Row 1: Technologies (Scroll Left) with Mask */}

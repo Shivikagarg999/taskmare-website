@@ -60,8 +60,6 @@ export default function App() {
   const [privacyModalOpen, setPrivacyModalOpen] = useState<boolean>(false);
   const [submittedData, setSubmittedData] = useState<SubmittedInquiryData | null>(null);
   const [toastData, setToastData] = useState<ToastNotificationData | null>(null);
-  
-  // Private Admin Portal State (Secured by Master Passkey)
   const [isAdmin, setIsAdmin] = useState<boolean>(() => isAdminAuthenticated());
   const [adminAuthModalOpen, setAdminAuthModalOpen] = useState<boolean>(false);
   const [seoModalOpen, setSeoModalOpen] = useState<boolean>(false);
@@ -75,7 +73,6 @@ export default function App() {
     }
   };
 
-  // Apply dynamic SEO metadata on route change & initial load
   useEffect(() => {
     applySEOMetadata(currentView);
   }, [currentView]);

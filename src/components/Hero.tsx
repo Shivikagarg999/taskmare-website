@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { BRAND, BRAND_ASSETS } from '../data/siteContent';
-import { ArrowRight, MessageSquare, ShieldCheck, CheckCircle2, Smartphone, Terminal, Zap, Sparkles } from 'lucide-react';
+import { ArrowRight, MessageSquare, ShieldCheck, CheckCircle2, Smartphone, Terminal, Sparkles } from 'lucide-react';
 
 interface HeroProps {
   onOpenEnquiry: (platform?: 'Android' | 'iOS' | 'Both') => void;
@@ -62,8 +62,6 @@ export const Hero: React.FC<HeroProps> = ({ onOpenEnquiry }) => {
             <div className="flex flex-wrap items-center gap-2 text-xs font-semibold tracking-wider text-[#E11D48] dark:text-red-400">
               <span className="w-2 h-2 rounded-full bg-[#E11D48] animate-pulse shrink-0" />
               <span className="font-mono text-[11px] uppercase tracking-widest text-neutral-500 dark:text-neutral-400">01</span>
-              <span aria-hidden="true" className="text-neutral-300 dark:text-neutral-700">·</span>
-              <span className="uppercase tracking-wider font-bold">Custom Software &amp; Mobile App Development Company</span>
               <span aria-hidden="true" className="text-neutral-300 dark:text-neutral-700">·</span>
               <span className="text-neutral-600 dark:text-neutral-300 font-medium">Pan-India Delivery</span>
             </div>
@@ -136,21 +134,6 @@ export const Hero: React.FC<HeroProps> = ({ onOpenEnquiry }) => {
               {/* Floating Levitation Outer Container */}
               <div className="animate-hero-float">
                 
-                {/* Floating Chip 1: Native Performance (Top-Left) */}
-                <div 
-                  className="absolute -top-4 -left-3 sm:-top-5 sm:-left-4 z-20 animate-hero-chip-1 pointer-events-none sm:pointer-events-auto transition-transform duration-200 ease-out"
-                  style={{ transform: `translate3d(0, ${scrollY * -0.05}px, 0)` }}
-                >
-                  <div className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white/95 dark:bg-neutral-900/95 backdrop-blur-md border border-neutral-200/90 dark:border-neutral-700/90 shadow-xl text-xs font-bold text-neutral-900 dark:text-white">
-                    <span className="relative flex h-2 w-2">
-                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-                      <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
-                    </span>
-                    <Zap className="w-3.5 h-3.5 text-[#E11D48]" />
-                    <span>60 FPS Native Performance</span>
-                  </div>
-                </div>
-
                 {/* Floating Chip 2: NDA & Code Ownership (Bottom-Right) */}
                 <div 
                   className="absolute -bottom-4 -right-2 sm:-bottom-5 sm:-right-4 z-20 animate-hero-chip-2 pointer-events-none sm:pointer-events-auto transition-transform duration-200 ease-out"
