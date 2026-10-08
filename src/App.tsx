@@ -7,7 +7,6 @@ import { ServicesSection } from './components/ServicesSection';
 import { TechStackSection } from './components/TechStackSection';
 import { ParallaxSection } from './components/ParallaxSection';
 import { WhyChooseUs } from './components/WhyChooseUs';
-import { SocialProofSection } from './components/SocialProofSection';
 import { FAQSection } from './components/FAQSection';
 import { EnquiryForm } from './components/EnquiryForm';
 import { Footer } from './components/Footer';
@@ -215,9 +214,6 @@ export default function App() {
 
               {/* Interactive Live Phone Simulator (App Demo Playground) */}
               <AppPlaygroundSection onOpenEnquiry={scrollToEnquiry} />
-
-              {/* Client Stories & NDA-Protected Case Studies */}
-              <SocialProofSection onOpenEnquiry={scrollToEnquiry} />
 
               {/* Cinematic Multi-Layer Parallax Architecture Section */}
               <ParallaxSection onOpenEnquiry={() => scrollToEnquiry()} />

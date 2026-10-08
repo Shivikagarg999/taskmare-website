@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { BRAND, BRAND_ASSETS } from '../data/siteContent';
-import { ArrowRight, MessageSquare, ShieldCheck, CheckCircle2, Smartphone, Terminal, Sparkles } from 'lucide-react';
+import { ArrowRight, MessageSquare, CheckCircle2, Smartphone, Terminal, Sparkles } from 'lucide-react';
 
 interface HeroProps {
   onOpenEnquiry: (platform?: 'Android' | 'iOS' | 'Both') => void;
@@ -133,17 +133,6 @@ export const Hero: React.FC<HeroProps> = ({ onOpenEnquiry }) => {
 
               {/* Floating Levitation Outer Container */}
               <div className="animate-hero-float">
-                
-                {/* Floating Chip 2: NDA & Code Ownership (Bottom-Right) */}
-                <div 
-                  className="absolute -bottom-4 -right-2 sm:-bottom-5 sm:-right-4 z-20 animate-hero-chip-2 pointer-events-none sm:pointer-events-auto transition-transform duration-200 ease-out"
-                  style={{ transform: `translate3d(0, ${scrollY * 0.06}px, 0)` }}
-                >
-                  <div className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white/95 dark:bg-neutral-900/95 backdrop-blur-md border border-neutral-200/90 dark:border-neutral-700/90 shadow-xl text-xs font-bold text-neutral-900 dark:text-white">
-                    <ShieldCheck className="w-4 h-4 text-emerald-500 shrink-0" />
-                    <span>100% IP &amp; Bilateral NDA</span>
-                  </div>
-                </div>
 
                 {/* Interactive 3D Parallax Tilt Card Frame */}
                 <div
@@ -154,12 +143,12 @@ export const Hero: React.FC<HeroProps> = ({ onOpenEnquiry }) => {
                     transformStyle: 'preserve-3d',
                     transition: mousePos.active ? 'transform 0.12s ease-out' : 'transform 0.6s cubic-bezier(0.16, 1, 0.3, 1)',
                   }}
-                  className="relative rounded-2xl overflow-hidden shadow-2xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 p-3 sm:p-4 group cursor-pointer"
+                  className="relative rounded-2xl overflow-hidden shadow-2xl bg-white dark:bg-neutral-900 p-3 sm:p-4 group cursor-pointer"
                 >
                   <div className="relative rounded-xl overflow-hidden aspect-[4/3] bg-neutral-950">
                     <img
                       src={BRAND_ASSETS.heroGraphic}
-                      alt="Taskmare Labs App Development Studio Workspace"
+                      alt="Taskmare Labs development workspace"
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                       loading="eager"
                       onError={(e) => {
