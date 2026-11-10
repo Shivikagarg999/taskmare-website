@@ -223,7 +223,7 @@ export const FloatingWhatsApp: React.FC = () => {
       {!isOpen && hasPrompted && (
         <div
           onClick={() => setIsOpen(true)}
-          className="cursor-pointer mb-2 max-w-xs bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 p-2.5 rounded-xl shadow-lg flex items-center gap-2.5 text-xs text-neutral-800 dark:text-neutral-200 group hover:border-emerald-500 transition-all animate-bounce"
+          className="cursor-pointer mb-2 max-w-xs bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 p-2.5 rounded-xl shadow-lg flex items-center gap-2.5 text-xs text-neutral-800 dark:text-neutral-200 group hover:border-emerald-500 transition-all animate-in fade-in slide-in-from-bottom-2"
           role="button"
           tabIndex={0}
           onKeyDown={(e) => {
@@ -233,10 +233,7 @@ export const FloatingWhatsApp: React.FC = () => {
           }}
           aria-label="Quick inquiry: chat on WhatsApp with Taskmare Labs"
         >
-          <span className="relative flex h-2.5 w-2.5 shrink-0">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-            <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500" />
-          </span>
+          <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500 shrink-0" />
           <span className="truncate">
             Have an app idea? <strong className="text-emerald-600 dark:text-emerald-400 font-semibold group-hover:underline">Chat on WhatsApp</strong>
           </span>
@@ -262,12 +259,6 @@ export const FloatingWhatsApp: React.FC = () => {
         aria-label={isOpen ? 'Close WhatsApp enquiry' : 'Open WhatsApp chat enquiry'}
         aria-expanded={isOpen}
       >
-        {/* Animated pulse ring */}
-        <span
-          className="absolute -inset-1 rounded-full bg-[#25D366]/30 animate-ping pointer-events-none"
-          aria-hidden="true"
-        />
-
         {isOpen ? (
           <X className="w-6 h-6 sm:w-7 sm:h-7 text-white" aria-hidden="true" />
         ) : (
@@ -283,10 +274,7 @@ export const FloatingWhatsApp: React.FC = () => {
 
         {/* Online green indicator badge */}
         {!isOpen && (
-          <span className="absolute top-0 right-0 flex h-3 w-3">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-200 opacity-75" />
-            <span className="relative inline-flex rounded-full h-3 w-3 bg-emerald-400 border-2 border-white dark:border-neutral-900" />
-          </span>
+          <span className="absolute top-0 right-0 inline-flex rounded-full h-3 w-3 bg-emerald-400 border-2 border-white dark:border-neutral-900" />
         )}
       </button>
     </div>
