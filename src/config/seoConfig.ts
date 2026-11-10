@@ -116,7 +116,7 @@ export const DEFAULT_SEO_CONFIG: SEOConfig = {
     organizationName: 'Taskmare Labs',
     organizationUrl: 'https://taskmare.online/',
     logoUrl: 'https://taskmare.online/assets/taskmare/favicon.png',
-    telephone: '+919760556855',
+    telephone: '+919548120975',
     email: 'taskmarelabs@gmail.com',
     streetAddress: '540 Gokul Nagar, Teachers Colony, Chandpur',
     addressLocality: 'Bijnor',
@@ -126,7 +126,7 @@ export const DEFAULT_SEO_CONFIG: SEOConfig = {
     socialLinks: [
       'https://www.facebook.com/taksmare/',
       'https://www.instagram.com/taskmare_labs',
-      'https://wa.me/919760556855'
+      'https://wa.me/919548120975'
     ],
     enableLocalBusinessSchema: true,
     enableFaqSchema: true,
