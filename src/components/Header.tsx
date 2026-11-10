@@ -43,7 +43,6 @@ export const Header: React.FC<HeaderProps> = ({ onOpenEnquiry, onNavigateHome })
   const navLinks = [
     { label: 'Services', href: '#services' },
     { label: 'Tech Stack', href: '#tech-stack' },
-    { label: 'Live Demo', href: '#demo-playground' },
     { label: 'Case Studies', href: '#reviews' },
     { label: 'Principles', href: '#why-us' },
     { label: 'FAQ', href: '#faq' },

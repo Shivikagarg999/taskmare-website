@@ -16,9 +16,9 @@ export const BRAND = {
 };
 
 export const BRAND_ASSETS = {
-  logo: '/assets/taskmare/logo-whiteBG.png',
-  logoDark: '/assets/taskmare/logo-dark.png',
-  logoTransparent: '/assets/taskmare/logo-transparent.png',
+  logo: '/assets/taskmare/favicon.png',
+  logoDark: '/assets/taskmare/favicon.png',
+  logoTransparent: '/assets/taskmare/favicon.png',
   favicon: '/assets/taskmare/favicon.png',
   heroGraphic: '/images/hero_mobile_showcase_1790316785657.jpg',
   aboutGraphic: '/images/about_studio_workspace_1790316842120.jpg',

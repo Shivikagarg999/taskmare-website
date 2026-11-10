@@ -2,10 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { ThemeProvider } from './context/ThemeContext';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
-import { TechMarquee } from './components/TechMarquee';
 import { ServicesSection } from './components/ServicesSection';
 import { TechStackSection } from './components/TechStackSection';
-import { ParallaxSection } from './components/ParallaxSection';
 import { WhyChooseUs } from './components/WhyChooseUs';
 import { FAQSection } from './components/FAQSection';
 import { EnquiryForm } from './components/EnquiryForm';
@@ -17,7 +15,6 @@ import { MobileBottomBar } from './components/MobileBottomBar';
 import { ThankYouPage } from './components/ThankYouPage';
 import { ToastNotification, ToastNotificationData } from './components/ToastNotification';
 import { AmbientPageEffects } from './components/AmbientPageEffects';
-import { AppPlaygroundSection } from './components/AppPlaygroundSection';
 import { PlatformChoice, InquiryResponse } from './types';
 import { SEOModal } from './components/seo/SEOModal';
 import { AdminAuthModal } from './components/admin/AdminAuthModal';
@@ -35,22 +32,27 @@ interface SubmittedInquiryData {
   details: string;
 }
 
-type PageView = 'home' | 'terms' | 'privacy';
+type PageView = 'home' | 'terms' | 'privacy' | 'enquiry';
+
+const VIEW_PATHS: Record<PageView, string> = {
+  home: '/',
+  terms: '/terms',
+  privacy: '/privacy-policy',
+  enquiry: '/start-project',
+};
+
+const resolveView = (): PageView => {
+  if (typeof window === 'undefined') return 'home';
+  const path = window.location.pathname.toLowerCase().replace(/\/+$/, '');
+  const hash = window.location.hash.toLowerCase();
+  if (path === '/terms' || path === '/terms-and-conditions' || hash === '#terms') return 'terms';
+  if (path === '/privacy-policy' || path === '/privacy' || hash === '#privacy-policy' || hash === '#privacy') return 'privacy';
+  if (path === '/start-project' || path === '/enquiry' || hash === '#enquiry') return 'enquiry';
+  return 'home';
+};
 
 export default function App() {
-  const [currentView, setCurrentView] = useState<PageView>(() => {
-    if (typeof window !== 'undefined') {
-      const path = window.location.pathname.toLowerCase();
-      const hash = window.location.hash.toLowerCase();
-      if (path === '/terms' || path === '/terms-and-conditions' || hash === '#terms') {
-        return 'terms';
-      }
-      if (path === '/privacy-policy' || path === '/privacy' || hash === '#privacy-policy' || hash === '#privacy') {
-        return 'privacy';
-      }
-    }
-    return 'home';
-  });
+  const [currentView, setCurrentView] = useState<PageView>(resolveView);
 
   const [selectedPlatform, setSelectedPlatform] = useState<PlatformChoice>('Both');
   const [estimatedBudget, setEstimatedBudget] = useState<string>('₹25,000 – ₹75,000');
@@ -101,15 +103,8 @@ export default function App() {
   // Sync with browser back/forward buttons
   useEffect(() => {
     const handlePopState = () => {
-      const path = window.location.pathname.toLowerCase();
-      const hash = window.location.hash.toLowerCase();
-      if (path === '/terms' || path === '/terms-and-conditions' || hash === '#terms') {
-        setCurrentView('terms');
-      } else if (path === '/privacy-policy' || path === '/privacy' || hash === '#privacy-policy' || hash === '#privacy') {
-        setCurrentView('privacy');
-      } else {
-        setCurrentView('home');
-      }
+      setSubmittedData(null);
+      setCurrentView(resolveView());
     };
 
     window.addEventListener('popstate', handlePopState);
@@ -118,7 +113,7 @@ export default function App() {
 
   const navigateTo = (view: PageView) => {
     setCurrentView(view);
-    const targetPath = view === 'terms' ? '/terms' : view === 'privacy' ? '/privacy-policy' : '/';
+    const targetPath = VIEW_PATHS[view];
     if (window.location.pathname !== targetPath) {
       window.history.pushState({ view }, '', targetPath);
     }
@@ -129,21 +124,13 @@ export default function App() {
     if (submittedData) {
       setSubmittedData(null);
     }
-    if (currentView !== 'home') {
-      navigateTo('home');
-    }
     if (platform) {
       setSelectedPlatform(platform);
     }
     if (prefillDetails) {
       setEstimatedDetails(prefillDetails);
     }
-    setTimeout(() => {
-      const element = document.getElementById('enquiry');
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-      }
-    }, 100);
+    navigateTo('enquiry');
   };
 
   const handleFormSubmission = (data: SubmittedInquiryData) => {
@@ -198,13 +185,18 @@ export default function App() {
               onBackToHome={() => navigateTo('home')}
               onOpenEnquiry={() => scrollToEnquiry()}
             />
+          ) : currentView === 'enquiry' ? (
+            <EnquiryForm
+              initialPlatform={selectedPlatform}
+              initialBudget={estimatedBudget}
+              initialTimeline={estimatedTimeline}
+              initialDetails={estimatedDetails}
+              onSuccessfulSubmit={handleFormSubmission}
+            />
           ) : (
             <>
               {/* Conversion Focused Hero Section */}
               <Hero onOpenEnquiry={scrollToEnquiry} />
-
-              {/* Dynamic Infinite Capabilities & Tech Stack Marquee */}
-              <TechMarquee onSelectItem={(item) => scrollToEnquiry(undefined, `Inquiry regarding: ${item}`)} />
 
               {/* Core Services Section with Direct Inquire Triggers */}
               <ServicesSection onSelectService={scrollToEnquiry} />
@@ -212,26 +204,12 @@ export default function App() {
               {/* Modern Technology & Practical Decisions Matrix */}
               <TechStackSection onOpenEnquiry={() => scrollToEnquiry()} />
 
-              {/* Interactive Live Phone Simulator (App Demo Playground) */}
-              <AppPlaygroundSection onOpenEnquiry={scrollToEnquiry} />
-
-              {/* Cinematic Multi-Layer Parallax Architecture Section */}
-              <ParallaxSection onOpenEnquiry={() => scrollToEnquiry()} />
 
               {/* What We Stand For & 5-Step Process */}
               <WhyChooseUs onOpenEnquiry={() => scrollToEnquiry()} />
 
               {/* Frequently Asked Questions (Accordion) */}
               <FAQSection onOpenEnquiry={() => scrollToEnquiry()} />
-
-              {/* The High-Converting Project Enquiry Form with reCAPTCHA */}
-              <EnquiryForm
-                initialPlatform={selectedPlatform}
-                initialBudget={estimatedBudget}
-                initialTimeline={estimatedTimeline}
-                initialDetails={estimatedDetails}
-                onSuccessfulSubmit={handleFormSubmission}
-              />
             </>
           )}
         </main>

@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { SERVICES } from '../data/siteContent';
 import { PlatformChoice } from '../types';
-import { Check, ArrowRight, Sparkles } from 'lucide-react';
+import { Check, ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
 
 interface ServicesSectionProps {
   onSelectService: (platform: PlatformChoice) => void;
@@ -17,6 +17,42 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
     if (filter === 'backend') return service.id === 'software' || service.id === 'backend';
     return true;
   });
+
+  const trackRef = useRef<HTMLDivElement>(null);
+  const [expanded, setExpanded] = useState<Set<string>>(new Set());
+  const [canPrev, setCanPrev] = useState(false);
+  const [canNext, setCanNext] = useState(false);
+
+  const updateArrows = useCallback(() => {
+    const el = trackRef.current;
+    if (!el) return;
+    setCanPrev(el.scrollLeft > 4);
+    setCanNext(el.scrollLeft + el.clientWidth < el.scrollWidth - 4);
+  }, []);
+
+  useEffect(() => {
+    const el = trackRef.current;
+    if (el) el.scrollTo({ left: 0 });
+    setExpanded(new Set());
+    updateArrows();
+    window.addEventListener('resize', updateArrows);
+    return () => window.removeEventListener('resize', updateArrows);
+  }, [filter, updateArrows]);
+
+  const scrollByPage = (dir: 1 | -1) => {
+    const el = trackRef.current;
+    if (!el) return;
+    el.scrollBy({ left: dir * el.clientWidth, behavior: 'smooth' });
+  };
+
+  const toggleExpanded = (id: string) => {
+    setExpanded((prev) => {
+      const next = new Set(prev);
+      if (next.has(id)) next.delete(id);
+      else next.add(id);
+      return next;
+    });
+  };
 
   return (
     <section
@@ -93,12 +129,39 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
           </div>
         </div>
 
-        {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredServices.map((service) => (
+        <div className="flex items-center justify-end gap-2 mb-4">
+          <button
+            type="button"
+            onClick={() => scrollByPage(-1)}
+            disabled={!canPrev}
+            aria-label="Previous services"
+            className="w-10 h-10 inline-flex items-center justify-center rounded-full border border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-900 text-neutral-800 dark:text-neutral-200 hover:bg-[#E11D48] hover:text-white hover:border-[#E11D48] disabled:opacity-40 disabled:pointer-events-none transition-all cursor-pointer"
+          >
+            <ChevronLeft className="w-5 h-5" aria-hidden="true" />
+          </button>
+          <button
+            type="button"
+            onClick={() => scrollByPage(1)}
+            disabled={!canNext}
+            aria-label="Next services"
+            className="w-10 h-10 inline-flex items-center justify-center rounded-full border border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-900 text-neutral-800 dark:text-neutral-200 hover:bg-[#E11D48] hover:text-white hover:border-[#E11D48] disabled:opacity-40 disabled:pointer-events-none transition-all cursor-pointer"
+          >
+            <ChevronRight className="w-5 h-5" aria-hidden="true" />
+          </button>
+        </div>
+
+        <div
+          ref={trackRef}
+          onScroll={updateArrows}
+          className="flex items-start gap-6 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+        >
+          {filteredServices.map((service) => {
+            const isOpen = expanded.has(service.id);
+            const features = isOpen ? service.features : service.features.slice(0, 3);
+            return (
             <div
               key={service.id}
-              className="card-elevated group flex flex-col justify-between rounded-2xl border border-neutral-200/90 dark:border-neutral-800 bg-white dark:bg-neutral-900/90 overflow-hidden shadow-xs hover:shadow-xl transition-all duration-300 hover:border-[#E11D48]/40"
+              className="card-elevated group snap-start shrink-0 basis-[85%] md:basis-[calc((100%_-_1.5rem)/2)] lg:basis-[calc((100%_-_3rem)/3)] flex flex-col justify-between rounded-2xl border border-neutral-200/90 dark:border-neutral-800 bg-white dark:bg-neutral-900/90 overflow-hidden shadow-xs hover:shadow-xl transition-all duration-300 hover:border-[#E11D48]/40"
             >
               <div>
                 {/* Visual Thumbnail */}
@@ -128,19 +191,27 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
                   <h3 className="text-xl font-bold font-heading text-neutral-900 dark:text-white group-hover:text-[#E11D48] transition-colors">
                     {service.title}
                   </h3>
-                  <p className="mt-2 text-sm text-neutral-600 dark:text-neutral-300 leading-relaxed font-normal">
+                  <p className={`mt-2 text-sm text-neutral-600 dark:text-neutral-300 leading-relaxed font-normal ${isOpen ? '' : 'line-clamp-3'}`}>
                     {service.description}
                   </p>
 
-                  {/* Feature Checklist */}
                   <ul className="mt-5 space-y-2.5 pt-4 border-t border-neutral-100 dark:border-neutral-800" aria-label={`Key features of ${service.title}`}>
-                    {service.features.map((feat, i) => (
+                    {features.map((feat, i) => (
                       <li key={i} className="flex items-start gap-2 text-xs text-neutral-700 dark:text-neutral-300 font-medium">
                         <Check className="w-3.5 h-3.5 text-[#E11D48] shrink-0 mt-0.5" aria-hidden="true" />
                         <span>{feat}</span>
                       </li>
                     ))}
                   </ul>
+
+                  <button
+                    type="button"
+                    onClick={() => toggleExpanded(service.id)}
+                    aria-expanded={isOpen}
+                    className="mt-4 text-xs font-bold text-[#E11D48] hover:underline cursor-pointer"
+                  >
+                    {isOpen ? 'Show less' : 'Read more'}
+                  </button>
                 </div>
               </div>
 
@@ -156,7 +227,8 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
                 </button>
               </div>
             </div>
-          ))}
+            );
+          })}
         </div>
 
         {/* Bottom AI Capabilities Banner */}

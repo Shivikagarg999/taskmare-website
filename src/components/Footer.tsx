@@ -143,11 +143,6 @@ export const Footer: React.FC<FooterProps> = ({
                 </a>
               </li>
               <li>
-                <a href="#demo-playground" className="hover:text-white transition-colors">
-                  Live Phone Sandbox
-                </a>
-              </li>
-              <li>
                 <a href="#reviews" className="hover:text-white transition-colors">
                   Case Studies
                 </a>
@@ -181,9 +176,9 @@ export const Footer: React.FC<FooterProps> = ({
                 </button>
               </li>
               <li>
-                <a href="#enquiry" className="hover:text-white transition-colors">
+                <button type="button" onClick={() => onOpenEnquiry()} className="hover:text-white transition-colors cursor-pointer">
                   Start Project Inquiry
-                </a>
+                </button>
               </li>
             </ul>
           </div>
